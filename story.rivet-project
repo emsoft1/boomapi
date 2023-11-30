@@ -1,0 +1,433 @@
+version: 4
+data:
+  attachedData:
+    trivet:
+      testSuites: []
+      version: 1
+  graphs:
+    0qj9Q86R2xbOf0Sv67TEp:
+      metadata:
+        description: ""
+        id: 0qj9Q86R2xbOf0Sv67TEp
+        name: rewriter
+      nodes:
+        '[-gvFfF0UmP_b7iloGCnnk]:text "Text"':
+          data:
+            text: "Sie sind ein KI-Autor, der damit beauftragt ist, Geschichten basierend
+              auf den Haupterzählungen, die Sie erhalten, umzuschreiben. Ihre
+              Rolle beinhaltet das Modifizieren und Erweitern dieser Geschichten
+              zu einem umfassenden Absatz. Das Ergebnis sollte in zwei
+              Abschnitte gegliedert sein: Der erste Abschnitt wird die
+              umgeschriebene Geschichte sein, und der zweite Abschnitt wird ein
+              Text für die Erzählung sein, der für die Verwendung in einem Video
+              konzipiert ist. Dieser Ansatz stellt sicher, dass der
+              umgeschriebene Inhalt nicht nur in schriftlicher Form ansprechend
+              ist, sondern auch für das auditive Erzählen im Videoformat
+              geeignet ist. Das Ausgabeformat ist JSON {Story: die
+              umgeschriebene Geschichte, voice_text: Text für die Erzählung},"
+          outgoingConnections:
+            - output->"KI-Autor" XwQPaKnrrFBClihHocsj4/systemPrompt
+          visualData: 575/293/330/151//
+        '[2qD4ruBRjbLo_ujVl3DKN]:userInput "User Input"':
+          data:
+            prompt: This is an example question?
+            useInput: true
+          visualData: 1609.0057973725752/650.4119248653551/280/null//
+        '[NY_xCn8s0iMGKgoOqrRjp]:subGraph "Subgraph"':
+          data:
+            graphId: HxCJr_tBv98i9T79iWvbf
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"KI-Autor" XwQPaKnrrFBClihHocsj4/prompt
+          visualData: 357.55063087633516/624.2213253845422/330/153//
+        '[XwQPaKnrrFBClihHocsj4]:chat "KI-Autor"':
+          data:
+            cache: false
+            enableFunctionUse: false
+            frequencyPenalty: 0
+            maxTokens: 4000
+            model: gpt-4
+            presencePenalty: 0
+            stop: ""
+            temperature: 0.5
+            top_p: 1
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePresencePenaltyInput: false
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          isSplitRun: true
+          outgoingConnections:
+            - response->"User Input" 2qD4ruBRjbLo_ujVl3DKN/questions
+          splitRunMax: 10
+          visualData: 1023.3738730824425/548.6595653402935/230/151//
+    HxCJr_tBv98i9T79iWvbf:
+      metadata:
+        description: ""
+        id: HxCJr_tBv98i9T79iWvbf
+        name: school
+      nodes:
+        '[0R2YuLEd14NoDiXEWKfjX]:text "Text"':
+          data:
+            text: "{{input}}"
+          isSplitRun: true
+          outgoingConnections:
+            - output->"Graph Output" A85jg1UxYaQs40mvEoS4-/value
+          splitRunMax: 10
+          visualData: 4808.196751132486/-1.272184120941823/330/130//
+        '[5mVS03sY6Eas1E0cMM56n]:extractJson "Extract JSON"':
+          outgoingConnections:
+            - output->"Extract Object Path" yMhtTMfCvbH9eb49ETgQA/object
+          visualData: 555.7797974667355/445.18639563061754/280/22//
+        '[7Iwu89kJse1Z4SakH1kri]:text "Text"':
+          data:
+            text: "Sie sind Geographielehrer und Ihre Aufgabe ist es, den Inhalt von
+              Geschichten zu überprüfen, um sicherzustellen, dass dieser mit
+              geographischen Parametern übereinstimmt und für ein Publikum im
+              Alter von 14 bis 18 Jahren geeignet ist. Der Inhalt sollte sicher,
+              altersgerecht und einfach zu verstehen sein. Ihr Feedback sollte
+              in zwei Abschnitte gegliedert sein: einen für die Analyse der
+              Geschichte und einen anderen für Vorschläge, die Anleitung dazu
+              geben, wie die geografischen Elemente der Geschichte verbessert
+              werden können, während Klarheit und Relevanz für junge Leser
+              beibehalten werden."
+          outgoingConnections:
+            - output->"Geographielehrer" VuX_HuLTzGPOfas6NQUSl/systemPrompt
+          visualData: 3118.310077845048/-411.29683908896567/330/167//
+        '[94YDqI7q_n6wUJLhuP10p]:text "Text"':
+          data:
+            text: "Sie sind Lehrer für Sozialkunde und Ihre Aufgabe ist es, den Inhalt von
+              Geschichten zu überprüfen, um sicherzustellen, dass er relevant
+              und angemessen für ein Publikum im Alter von 14 bis 18 Jahren ist.
+              Der Inhalt sollte sicher, altersgerecht und einfach zu verstehen
+              sein. Ihr Feedback sollte in zwei Abschnitte gegliedert sein:
+              einen für die Analyse der Geschichte und einen anderen für
+              Vorschläge, die Anleitung dazu geben, wie die sozialen,
+              kulturellen und historischen Elemente der Geschichte verbessert
+              werden können, während Klarheit und Relevanz für junge Leser
+              beibehalten werden."
+          outgoingConnections:
+            - output->"Lehrer für Sozialkunde" X0MMsif6tKj79xKT-a0mn/systemPrompt
+          visualData: 2930.1070764610267/462.771402430661/330/165//
+        '[A85jg1UxYaQs40mvEoS4-]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 5621.349254782752/-50.695883211148754/330/141//
+        '[BjN-dcD5dg11CmTnttB14]:userInput "User Input"':
+          data:
+            prompt: This is an example question?
+            useInput: true
+          outgoingConnections:
+            - output->"Chat" MOZZ0ig8WWHDHDUDSGdgb/prompt
+          visualData: 1052.6545350600406/278.9037616412463/280/91//
+        '[BwQPEsLC56heeb8tJ7rgm]:subGraph "Subgraph"':
+          data:
+            graphId: YwY-DW-ulc0KRigzlWx7V
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"Extract JSON" 5mVS03sY6Eas1E0cMM56n/input
+            - output->"User Input" BjN-dcD5dg11CmTnttB14/questions
+          visualData: 46.23673901113244/244.08943618130002/330/144//
+        '[FOjeYjcYhc30R4Rt60DIj]:text "Text"':
+          data:
+            text: "Dies ist der Erzählstil: {{input}}"
+          outgoingConnections:
+            - output->"Join" q6JPEa4PqK84ACFnyQmwF/input6
+          visualData: 4476.100142662032/636.15482079289/330/158//
+        '[MOZZ0ig8WWHDHDUDSGdgb]:chat "Chat"':
+          data:
+            cache: false
+            enableFunctionUse: false
+            frequencyPenalty: 0
+            maxTokens: 1024
+            model: gpt-3.5-turbo
+            presencePenalty: 0
+            stop: ""
+            temperature: 0.5
+            top_p: 1
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePresencePenaltyInput: false
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - response->"Text" rqBvOwSzFw2g-T4TxmnGR/input
+          visualData: 1682.0800724995513/76.32799610153864/230/175//
+        '[MmPISOttM3HFVkeRddjoY]:text "Text"':
+          data:
+            text: "Sie sind Deutsch-Lehrer und Ihre Aufgabe ist es, den Inhalt von
+              Geschichten zu überprüfen, um sicherzustellen, dass er angemessen
+              und ansprechend für ein Publikum im Alter von 14 bis 18 Jahren
+              ist. Der Inhalt sollte sicher, altersgerecht und einfach zu
+              verstehen sein. Ihr Feedback sollte in zwei Abschnitte gegliedert
+              sein: einen für die Analyse der Geschichte und einen anderen für
+              Vorschläge, die Anleitung dazu geben, wie der Schreibstil, die
+              Erzählstruktur und der Sprachgebrauch verbessert werden können,
+              während Klarheit und Relevanz für junge Leser beibehalten werden."
+          outgoingConnections:
+            - output->"Deutsch-Lehrer" wX0syFqmVgK58r3xVTL21/systemPrompt
+          visualData: 3065.263401653504/-161.28372870497523/330/166//
+        '[VuX_HuLTzGPOfas6NQUSl]:chat "Geographielehrer"':
+          data:
+            cache: false
+            enableFunctionUse: false
+            frequencyPenalty: 0
+            headers: []
+            maxTokens: 1024
+            model: gpt-4
+            presencePenalty: 0
+            stop: ""
+            temperature: 0.5
+            top_p: 1
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePresencePenaltyInput: false
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - response->"Join" q6JPEa4PqK84ACFnyQmwF/input1
+          visualData: 3648.080729784746/-376.51141497234323/230/173//
+        '[X0MMsif6tKj79xKT-a0mn]:chat "Lehrer für Sozialkunde"':
+          data:
+            cache: false
+            enableFunctionUse: false
+            frequencyPenalty: 0
+            headers: []
+            maxTokens: 1024
+            model: gpt-4
+            presencePenalty: 0
+            stop: ""
+            temperature: 0.5
+            top_p: 1
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePresencePenaltyInput: false
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - response->"Join" q6JPEa4PqK84ACFnyQmwF/input3
+          visualData: 3619.0037620734374/267.4989566736191/230/174//
+        '[Y4iJAIsWFhANm5aAbGnUk]:text "Text"':
+          data:
+            text: user select from list also it can be in form of number ,  [1st-Person,
+              Minimal, Journalistic, Magical, and Sci-Fi]and you match from the
+              user input to the list andpick one of them to send to output
+              ,output should be just the word .
+          outgoingConnections:
+            - output->"Join" peDRUHbTYE83iYtDILqXY/input1
+          visualData: 952.347161683864/24.0466305688636/330/92//
+        '[hXO2ARUyUx8QEvrnJpOwr]:text "Text"':
+          data:
+            text: "Sie sind Geschichtslehrer und Ihre Aufgabe ist es, den Inhalt von
+              Geschichten zu überprüfen, um sicherzustellen, dass dieser
+              historische Kontexte genau widerspiegelt und für ein Publikum im
+              Alter von 14 bis 18 Jahren angemessen ist. Der Inhalt sollte
+              sicher, altersgerecht und einfach zu verstehen sein. Ihr Feedback
+              sollte in zwei Abschnitte gegliedert sein: einen für die Analyse
+              der Geschichte und einen anderen für Vorschläge, die Anleitung
+              dazu geben, wie die historische Genauigkeit und Tiefe der
+              Geschichte verbessert werden können, während Klarheit und Relevanz
+              für junge Leser beibehalten werden."
+          outgoingConnections:
+            - output->"Geschichtslehrer" uNp-uRDmkv1Awnd9JinMX/systemPrompt
+          visualData: 2975.159184858519/693.0377342400668/330/121//
+        '[nxxlIGq0Scl6SqLZdjIZx]:text "Text"':
+          data:
+            text: "Die Hauptgeschichte ist : {{input}}"
+          outgoingConnections:
+            - output->"Join" q6JPEa4PqK84ACFnyQmwF/input5
+          visualData: 4482.273293855362/388.6996998767594/330/157//
+        '[peDRUHbTYE83iYtDILqXY]:join "Join"':
+          data:
+            flatten: true
+            joinString: "\n"
+          outgoingConnections:
+            - output->"Chat" MOZZ0ig8WWHDHDUDSGdgb/systemPrompt
+          visualData: 1344.4970824583957/26.154868038617188/180/93//
+        '[q6JPEa4PqK84ACFnyQmwF]:join "Join"':
+          data:
+            flatten: true
+            joinString: "\n"
+          outgoingConnections:
+            - output->"Text" 0R2YuLEd14NoDiXEWKfjX/input
+          visualData: 4454.060908772228/-63.766744537458074/180/122//
+        '[rqBvOwSzFw2g-T4TxmnGR]:text "Text"':
+          data:
+            text: $.{{input}}
+          outgoingConnections:
+            - output->"Extract Object Path" yMhtTMfCvbH9eb49ETgQA/path
+          visualData: 2222.489906955635/28.674328268696968/330/95//
+        '[uNp-uRDmkv1Awnd9JinMX]:chat "Geschichtslehrer"':
+          data:
+            cache: false
+            enableFunctionUse: false
+            frequencyPenalty: 0
+            headers: []
+            maxTokens: 1024
+            model: gpt-4
+            presencePenalty: 0
+            stop: ""
+            temperature: 0.5
+            top_p: 1
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePresencePenaltyInput: false
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - response->"Join" q6JPEa4PqK84ACFnyQmwF/input4
+          visualData: 3653.8786570849734/709.633632603565/230/162//
+        '[wX0syFqmVgK58r3xVTL21]:chat "Deutsch-Lehrer"':
+          data:
+            cache: false
+            enableFunctionUse: false
+            frequencyPenalty: 0
+            headers: []
+            maxTokens: 1024
+            model: gpt-4
+            presencePenalty: 0
+            stop: ""
+            temperature: 0.5
+            top_p: 1
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePresencePenaltyInput: false
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - response->"Join" q6JPEa4PqK84ACFnyQmwF/input2
+          visualData: 3669.339796552246/-19.967377866206988/230/110//
+        '[yMhtTMfCvbH9eb49ETgQA]:extractObjectPath "Extract Object Path"':
+          data:
+            path: ""
+            text: ""
+            usePathInput: true
+          outgoingConnections:
+            - match->"Deutsch-Lehrer" wX0syFqmVgK58r3xVTL21/prompt
+            - match->"Geographielehrer" VuX_HuLTzGPOfas6NQUSl/prompt
+            - match->"Geschichtslehrer" uNp-uRDmkv1Awnd9JinMX/prompt
+            - match->"Lehrer für Sozialkunde" X0MMsif6tKj79xKT-a0mn/prompt
+            - match->"Text" nxxlIGq0Scl6SqLZdjIZx/input
+          visualData: 2975.9316292915637/142.92646627455895/280/146//
+    YwY-DW-ulc0KRigzlWx7V:
+      metadata:
+        description: ""
+        id: YwY-DW-ulc0KRigzlWx7V
+        name: start_line
+      nodes:
+        '[4PoJgV7jYNQhLC3eYNYsw]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: input
+            useDefaultValueInput: false
+          visualData: 353/299/330/20//
+        '[InuJuDcrKj-azyY5-XWjm]:chat "Geographielehrer"':
+          data:
+            cache: false
+            enableFunctionUse: false
+            frequencyPenalty: 0
+            maxTokens: 1024
+            model: gpt-4
+            presencePenalty: 0
+            stop: ""
+            temperature: 0.5
+            top_p: 1
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePresencePenaltyInput: false
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - response->"Graph Output" tdHneU9sPT5KY-W5rEwg_/value
+          visualData: 1020/214/230/7//
+        '[LC0XP-g604RbSwKrWnGiT]:userInput "User Input"':
+          data:
+            prompt: what is you idea about the story in 2 sentence ?
+            useInput: false
+          outgoingConnections:
+            - output->"Geographielehrer" InuJuDcrKj-azyY5-XWjm/prompt
+          visualData: 385/499/280/17//
+        '[UjEp-5wX5HBIHcSyu2fLs]:text "Text"':
+          data:
+            text: "Sie sind ein Schriftsteller, der junge Autoren im Alter von 14 bis 18
+              Jahren unterstützt. Sie werden Ihnen eine Kurzgeschichte
+              einreichen, die sich auf Themen im Zusammenhang mit Rassismus
+              konzentriert. Dabei ist sicherzustellen, dass der Inhalt
+              angemessen, altersgerecht und in einfacher Sprache verfasst ist.
+              Zusätzlich müssen Sie einige Sätze für jeden Erzählstil erstellen.
+              Die Kategorien umfassen 1st-Person, Minimal, Journalistic,
+              Magical, and Sci-Fi. Das Ausgabeformat sollte als JSON Objekt wie
+              folgt organisiert sein: {Kategorie: Story Lines}. Für jede
+              Kategorie formulieren Sie Sätze, die die einzigartigen
+              Eigenschaften des jeweiligen Erzählstils exemplarisch darstellen.
+              Diese erweiterte Version wird dann einer Schule voller Lehrer zur
+              Verfügung gestellt, um sie bei der Überprüfung und
+              Vervollständigung der Geschichte aus verschiedenen Perspektiven zu
+              unterstützen, während das Thema Rassismus sensibel und klar
+              behandelt wird."
+          outgoingConnections:
+            - output->"Geographielehrer" InuJuDcrKj-azyY5-XWjm/systemPrompt
+          visualData: 340/62/330/22//
+        '[tdHneU9sPT5KY-W5rEwg_]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 1509/287/330/19//
+  metadata:
+    description: ""
+    id: Y4DTg4DGhsVn0jfZ8a7dT
+    mainGraphId: 0qj9Q86R2xbOf0Sv67TEp
+    title: story
+  plugins: []

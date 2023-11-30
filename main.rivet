@@ -1,0 +1,51 @@
+version: 4
+data:
+  metadata:
+    description: ""
+    id: 0HzNZPb1YzMU0bauk6lEB
+    name: main
+  nodes:
+    '[E0tTcmPKyJsi1s0MBIHYL]:chat "Chat"':
+      data:
+        cache: false
+        enableFunctionUse: false
+        frequencyPenalty: 0
+        maxTokens: 1024
+        model: gpt-3.5-turbo
+        presencePenalty: 0
+        stop: ""
+        temperature: 0.5
+        top_p: 1
+        useAsGraphPartialOutput: true
+        useFrequencyPenaltyInput: false
+        useMaxTokensInput: false
+        useModelInput: false
+        usePresencePenaltyInput: false
+        useStop: false
+        useStopInput: false
+        useTemperatureInput: false
+        useTopP: false
+        useTopPInput: false
+        useUseTopPInput: false
+        useUserInput: false
+      outgoingConnections:
+        - response->"Graph Output" TYJVgBWs3FjgwqTDTJJfU/value
+      visualData: 769/148/230/4//
+    '[GLY8n0rAYuG1K56DLcxgZ]:text "Text"':
+      data:
+        text: "you are the ai test bot and help me to test the API "
+      outgoingConnections:
+        - output->"Chat" E0tTcmPKyJsi1s0MBIHYL/systemPrompt
+      visualData: 287/125/330/3//
+    '[TYJVgBWs3FjgwqTDTJJfU]:graphOutput "Graph Output"':
+      data:
+        dataType: string
+        id: output
+      visualData: 1251.2439184746877/164.38921761998682/330/9//
+    '[bMHHK0s3wgCf-HpG56bMG]:userInput "User Input"':
+      data:
+        prompt: This is an example question?
+        useInput: false
+      outgoingConnections:
+        - output->"Chat" E0tTcmPKyJsi1s0MBIHYL/prompt
+      visualData: 290.8231426692965/289.57001972386587/280/7//

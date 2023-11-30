@@ -1,0 +1,80 @@
+version: 4
+data:
+  attachedData:
+    trivet:
+      testSuites: []
+      version: 1
+  graphs:
+    0HzNZPb1YzMU0bauk6lEB:
+      metadata:
+        description: ""
+        id: 0HzNZPb1YzMU0bauk6lEB
+        name: main
+      nodes:
+        '[9ElK1FnLwevVB92iaUwaZ]:join "Join"':
+          data:
+            flatten: true
+            joinString: "\n"
+          outgoingConnections:
+            - output->"Chat" DgzPTxL-9a2yutUVQpRhW/prompt
+          visualData: 799.9178127862191/326.3345173552826/180/null//
+        '[DgzPTxL-9a2yutUVQpRhW]:chat "Chat"':
+          data:
+            cache: false
+            enableFunctionUse: false
+            frequencyPenalty: 0
+            maxTokens: 1024
+            model: gpt-3.5-turbo
+            presencePenalty: 0
+            stop: ""
+            temperature: 0.5
+            top_p: 1
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePresencePenaltyInput: false
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - response->"jj" J4w5EXmNSKD3eRmap77Eu/questions
+          visualData: 1096.7554730103766/413.58939154221076/230/null//
+        '[GLY8n0rAYuG1K56DLcxgZ]:text "Text"':
+          data:
+            text: "you are the ai test bot and help me to test the API "
+          outgoingConnections:
+            - output->"Join" 9ElK1FnLwevVB92iaUwaZ/input1
+          visualData: 556.2962290720659/22.27391369825645/330/59//
+        '[GP04qsxREgQq9k6ZUP2pf]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 1428.611952555258/103.83382679597175/330/67//
+        '[J4w5EXmNSKD3eRmap77Eu]: "jj"':
+          data:
+            prompt: |-
+              This is an example question?
+              {{question}}
+            useInput: true
+          outgoingConnections:
+            - output->"Graph Output" GP04qsxREgQq9k6ZUP2pf/value
+          visualData: 1559.058178504043/402.05976972546756/280/null//
+        '[LwpcwbGYCHhp2Tiosreo8]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: input
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Join" 9ElK1FnLwevVB92iaUwaZ/input2
+          visualData: 347.05035318420676/258.6924939075218/332.2046440154102/61//
+  metadata:
+    description: ""
+    id: NgK7uET4xGjeHHJ408qrt
+    mainGraphId: 0HzNZPb1YzMU0bauk6lEB
+    title: Untitled Project
+  plugins: []
